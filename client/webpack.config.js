@@ -14,7 +14,7 @@ module.exports = () => {
       install: './src/js/install.js',
       database: './src/js/database.js',
       editor: './src/js/editor.js',
-      header: './src/js/header.js',
+      header: './src/js/header.js'
     },
     output: {
       filename: '[name].bundle.js',
@@ -23,7 +23,7 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'jate'
+        
       }),
 
       new InjectManifest({
@@ -62,7 +62,7 @@ module.exports = () => {
               loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
-              plugins: ['babel-plugin-transform-object-rest-spread', '@babel/transform-runtime'],
+              plugins: ['@babel/plugin-transform-object-rest-spread', '@babel/transform-runtime'],
             }
           }
         }
