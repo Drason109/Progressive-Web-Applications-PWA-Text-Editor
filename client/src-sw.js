@@ -5,6 +5,7 @@ const { CacheableResponsePlugin } = require('workbox-cacheable-response');
 const { ExpirationPlugin } = require('workbox-expiration');
 const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
+//precache an array of urls that the WB Manifest has stored
 precacheAndRoute(self.__WB_MANIFEST);
 
 const pageCache = new CacheFirst({
@@ -28,10 +29,10 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
 registerRoute(
- ({ request }) => request.destination === 'image',
+ ({ request }) => ['style','script','worker'].includes(request.destination),
   new CacheFirst ({
     cacheName: 'assests',
-    plugins: [
+    plugins: [//this plugin cache the response for a max of 30 days
       new CacheableResponsePlugin({
         statuses:[0,200],
       }),

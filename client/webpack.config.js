@@ -21,17 +21,17 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      new HtmlWebpackPlugin({
+      new HtmlWebpackPlugin({//generates html file and add it to our bundle
         template: './index.html',
         
       }),
 
-      new InjectManifest({
+      new InjectManifest({//Injext to our service worker package
         swSrc: "./src-sw.js",
         swDest: 'src-sw.js',
       }),
       
-      new WebpackPwaManifest({
+      new WebpackPwaManifest({//creates a manifest.json file
         fingerprints: false,
         inject: true,
         name: 'Just another text editor',
@@ -50,7 +50,7 @@ module.exports = () => {
     ],
 
     module: {
-      rules: [
+      rules: [//Loader for CSS and Babel
         {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],

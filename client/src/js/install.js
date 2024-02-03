@@ -5,7 +5,7 @@ const butInstall = document.getElementById('buttonInstall');
 window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
 
-    window.deferredPrompt = event;
+    window.deferredPrompt = event;//stores the event
 
     butInstall.classList.toggle('hidden', false);
 });
@@ -13,13 +13,13 @@ window.addEventListener('beforeinstallprompt', (event) => {
 butInstall.addEventListener('click', async () => {
     const promptEvent = window.deferredPrompt;
 
-    if(!promptEvent){
+    if(!promptEvent){//
         return;
     }
 
     promptEvent.prompt();
 
-    window.deferredPrompt = null;
+    window.deferredPrompt = null;//resets
 
     butInstall.classList.toggle('hidden', true);
 });
