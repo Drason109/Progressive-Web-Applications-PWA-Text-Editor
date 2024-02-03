@@ -23,5 +23,7 @@ use npm install
 To run the application 
 
 run Start:dev
+![image](https://github.com/Drason109/Progressive-Web-Applications-PWA-Text-Editor/assets/50891894/31a77333-e724-4db1-b990-9d0ba172bcd6)
 
+than go to the application to start your web text editor
 ![Alt text](image.png)
